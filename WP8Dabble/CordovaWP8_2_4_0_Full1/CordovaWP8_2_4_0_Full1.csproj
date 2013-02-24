@@ -143,6 +143,14 @@
   <ItemGroup>
     <Content Include="config.xml" />
     <Content Include="CordovaLib\WPCordovaClassLib.dll" />
+    <Resource Include="www\css\images\ajax-loader.gif" />
+    <Content Include="www\css\images\icons-18-black.png" />
+    <Content Include="www\css\images\icons-18-white.png" />
+    <Content Include="www\css\images\icons-36-black.png" />
+    <Content Include="www\css\images\icons-36-white.png" />
+    <Content Include="www\css\jquery.mobile-1.3.0.min.css" />
+    <Content Include="www\js\jquery-1.9.1.min.js" />
+    <Content Include="www\js\jquerymobile130.js" />
     <Content Include="www\Page2.html">
       <SubType>Designer</SubType>
     </Content>
@@ -153,7 +161,7 @@
     <Content Include="www\index.html">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="www\Registration\index.html">
+    <Content Include="www\Reg\reg.html">
       <SubType>Designer</SubType>
     </Content>
     <None Include="cordova\debug.bat" />

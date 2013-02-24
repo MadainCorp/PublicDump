@@ -1,31 +1,58 @@
 ﻿<!DOCTYPE html>
 
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
-        <script type="text/javascript">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.3.0.min.css" />
 
-            function test(a,b)
-            {                
-                //alert(a + b);
-                window.location = "Page2.html";
-            }
-        </script>
-    </head>
-    <body>
-        <div class="app">
-            <h1>My First app</h1>
-            <input type="button" value="Start" onclick="test(1,2);" />          
-            <span id="stext"></span>
+    <script src="http://debug.phonegap.com/target/target-script-min.js#McTesty"></script>
+
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+
+    <title>Hello World</title>
+    <script type="text/javascript">
+
+        function moveNext() {
+            //alert(a + b);
+            window.location = "Reg/Reg.html";
+        }
+
+        function init() {
+            $('#stext').html('Document Ready');
+        }
+
+        function testAJAX() {
+            $.getJSON('http://api2.cabulous.com/2.0/ip.ip', gotData, failed);
+        }
+
+        function gotData(d) {
+            alert(d.IP);
+        }
+
+        function failed(e) {
+            alert('failed');
+        }
+        debugger;
+        $(document).ready(init);
+    </script>
+</head>
+<body>
+    <div class="app">
+        <h1>My First app</h1>
+        <span id="stext"></span>
+        <div data-role="controlgroup">
+            <input type="button" value="Test Ajax" onclick="testAJAX();" />
+            <input type="button" value="Next Page" data-icon="arrow-r" data-iconpos="right"  onclick="moveNext();" />
         </div>
-        <script type="text/javascript" src="/cordova-2.4.0.js"></script>
-        <script type="text/javascript" src="/js/index.js"></script>
-        <script type="text/javascript">
-            app.initialize();
-        </script>
-    </body>
+    </div>
+    <script type="text/javascript" src="cordova-2.4.0.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+    <script type="text/javascript" src="js/jquerymobile130.js"></script>
+</body>
 </html>
