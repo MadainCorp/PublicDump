@@ -17,7 +17,12 @@
 
         function moveNext() {
             //alert(a + b);
-            window.location = "Reg/Reg.html";
+            window.location = "Reg/reg.html";
+        }
+
+        function moveNext() {
+            //alert(a + b);
+            window.location = "Page2.html";
         }
 
         function init() {
@@ -45,7 +50,8 @@
         <span id="stext"></span>
         <div data-role="controlgroup">
             <input type="button" value="Test Ajax" onclick="testAJAX();" />
-            <input type="button" value="Next Page" data-icon="arrow-r" data-iconpos="right"  onclick="moveNext();" />
+            <input type="button" value="Next Page Subfolder" data-icon="arrow-r" data-iconpos="right"  onclick="moveNext();" />
+            <input type="button" value="Next Page Sibling" data-icon="arrow-r" data-iconpos="right"  onclick="moveSide();" />
         </div>
     </div>
     <script type="text/javascript" src="cordova-2.4.0.js"></script>
