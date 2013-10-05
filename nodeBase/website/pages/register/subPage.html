@@ -1,0 +1,31 @@
+﻿<form id="frmRegister">
+    <table>
+        <tr>
+            <td class="label required">email</td>
+            <td>
+                <input id="email" type="email" required maxlength="120" collect="true" value="" /></td>
+        </tr>
+     
+        <tr>
+            <td class="label required">Name</td>
+            <td>
+                <input type="text" id="name" pattern=".{2,150}" required title="min length is 2 chars" collect="true" /></td>
+        </tr>
+        <tr>
+            <td class="label required">Password</td>
+            <td>
+                <input type="password" id="password" pattern=".{6,50}" title="length must be between 6 and 50 chars" required collect="true" /></td>
+        </tr>
+        <tr>
+            <td class="label">Confirm Password</td>
+            <td>
+                <input type="password" id="confirm" required  /></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button onclick="registerPage.register();">Register</button></td>
+        </tr>
+
+    </table>
+</form>

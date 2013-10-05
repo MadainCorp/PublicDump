@@ -1,0 +1,162 @@
+﻿/**************  Page Elements ***************************/
+body {
+    font-family:helvetica,airal;   
+    color:#555; 
+    padding:0px;
+    margin:0px;
+    background-color:#eee;
+}
+
+#pageHeader {
+    background: url('/images/header.png') repeat-x;    
+    height:120px;
+    padding:10px;
+}
+    #pageHeader h1 {
+        font-family: Impact, Charcoal, sans-serif;
+        color: #00A1FF;
+        text-shadow: 3px 3px 3px #000;
+    }
+
+#pageContent {
+    min-height:500px;
+    margin-left:auto;
+    margin-right:auto;
+    width:1024px;
+    background:white;
+    padding:15px;
+    border-right:#ccc 3px solid;
+    border-bottom:#ccc 3px solid;
+    margin-bottom:15px;
+}
+
+#pageMenu {
+    float:left;
+    margin:25px;
+}
+
+    #pageMenu ul {        
+        list-style:none;       
+        background-color:white;
+        border-right:#ccc 3px solid;
+        border-bottom:#ccc 3px solid;
+        padding:15px;
+    }
+    #pageMenu li {
+        cursor:pointer;                
+        margin-bottom:10px;
+        font-weight:bold;
+    }
+    #pageMenu li:hover {
+        color:#00A1FF;
+    }
+
+#dynamicContentContainer {
+    min-height:300px;
+    float:left;
+    padding:15px;
+    width:600px;
+}
+#pageFooter {
+    background-color:gray;    
+    font-size:smaller;
+    min-height:50px;
+    border-top:#555 2px  solid;
+}
+
+#pageFooter li{
+    color:#ccc;
+    display:inline;
+    padding-left:50px;
+}
+
+#profileControlContainer {
+    width:300px;
+    float:right;    
+    text-align:right;    
+}
+
+/****************** FORM Elements ****************/
+
+.required:after{
+    content:" *";
+    color:red;
+}
+
+td.label {
+    text-align:right;
+    padding-right:5px;
+}
+
+label.error {
+    font-size:smaller;
+    color:#b58585;
+}
+label.error:before {
+    content:"* ";
+}
+
+button {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
+	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
+	background-color:#ededed;
+	-webkit-border-top-left-radius:6px;
+	-moz-border-radius-topleft:6px;
+	border-top-left-radius:6px;
+	-webkit-border-top-right-radius:6px;
+	-moz-border-radius-topright:6px;
+	border-top-right-radius:6px;
+	-webkit-border-bottom-right-radius:6px;
+	-moz-border-radius-bottomright:6px;
+	border-bottom-right-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	-moz-border-radius-bottomleft:6px;
+	border-bottom-left-radius:6px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	font-style:normal;
+	height:30px;
+	line-height:30px;
+	width:100px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #ffffff;
+}
+button:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
+	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
+	background-color:#dfdfdf;
+}button:active {
+	position:relative;
+	top:1px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=date] {
+    background-color:#fff;
+	-webkit-border-top-left-radius:4px;
+	-moz-border-radius-topleft:4px;
+	border-top-left-radius:4px;
+	-webkit-border-top-right-radius:4px;
+	-moz-border-radius-topright:4px;
+	border-top-right-radius:4px;
+	-webkit-border-bottom-right-radius:4px;
+	-moz-border-radius-bottomright:4px;
+	border-bottom-right-radius:4px;
+	-webkit-border-bottom-left-radius:4px;
+	-moz-border-radius-bottomleft:4px;
+	border-bottom-left-radius:4px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+    padding:4px;
+    line-height:25px;
+}

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/lib/cookies.min.js"></script>
+    <script type="text/javascript" src="/scripts/lib/jquery.ba-hashchange.min.js"></script>
+    
+    
+    <!-- Inject dynamic content -->
+    <script type="text/javascript" src="/scripts/framework/dynamicContentLoader.js"></script>
+
+    <script type="text/javascript" src="/common/mainMenu.js?v1.1"></script>
+
+    <!-- common api framework -->
+    <script src="/scripts/framework/api.js"></script>
+
+    <!-- Inject Auth Manager-->
+    <script src="scripts/framework/authManager.js"></script>
+
+
+    <!-- Page JS -->
+    <script type="text/javascript" src="index.js"></script>
+    
+    <!-- validation  -->
+    
+    
+    <link href="common/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="pageHeader">
+        <h1>Company Name, inc. </h1>
+        <div id="profileControlContainer">
+            <div id="profileControlContainerLoggedOut">
+                <a href="#" onclick="masterPage.load('login');return false;">Log in</a>
+                , <a href="#" onclick="masterPage.load('register');return false;">Register</a>
+            </div>
+            <div id="profileControlContainerLoggedIn" style="display: none;">
+                Welcome <span id="profileControlContainerLoggedInUserName"></span>
+                <a href="#" onclick="authManager.logout(); return false;">Log out</a>
+            </div>
+        </div>
+    </div>
+    <div id="pageMenu"></div>
+    <div id="pageContent">
+        <h3>Content</h3>
+        <div id="dynamicContentContainer">
+            dynamtic Content "You should never see this!"
+        </div>
+    </div>
+    <div id="pageFooter">
+        <ul>
+            <li>Contact us</li>
+            <li>About us</li>
+            <li>Company Info</li>
+        </ul>
+
+    </div>
+</body>
+</html>

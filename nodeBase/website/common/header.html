@@ -1,0 +1,12 @@
+﻿<h1>Company Name, inc. </h1>
+<div id="profileControlContainer">
+    <div id="profileControlContainerLoggedOut">
+        <a href="#" onclick="masterPage.load('login');return false;">Log in</a>
+        , <a href="#" onclick="masterPage.load('register');return false;">Register</a>
+    </div>
+    <div id="profileControlContainerLoggedIn" style="display:none;">
+        Welcome <span id="profileControlContainerLoggedInUserName"></span>
+        <a href="#" onclick="authManager.logout(); return false;">Log out</a>
+    </div>
+</div>
+

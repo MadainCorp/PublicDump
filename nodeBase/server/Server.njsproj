@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>A9995411-9910-4780-86DB-D80BB7A9FEAE</ProjectGuid>
+    <StartupObject>src/server.js</StartupObject>
+    <LaunchUrl>
+    </LaunchUrl>
+    <Name>Server</Name>
+    <RootNamespace>Server</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="package.json">
+      <SubType>Content</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="configs\serverConfigs.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="logs\logs.txt">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\apiTrafficManager.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\test\testApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\test\testParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\forgotPassword\forgotPasswordApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\forgotPassword\forgotPasswordParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\isSessionAlive\isSessionAliveApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\isSessionAlive\isSessionAliveParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\keepSessionAlive\keepSessionAliveApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\keepSessionAlive\keepSessionAliveParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\login\loginApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\login\loginParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\logout\logoutApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\logout\logoutParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\register\registerApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\users\register\registerParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\protocol\errorResponseObject.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\protocol\requestSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\protocol\responseObject.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\da\sessionsDA.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\da\usersDA.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\db\mdb.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\db\MDBDataAdapter.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\httpServer.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\lib\users.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\lib\sessions.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\logger.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\server.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\test.js">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="logs" />
+    <Folder Include="configs" />
+    <Folder Include="node_modules\" />
+    <Folder Include="src" />
+    <Folder Include="src\api\" />
+    <Folder Include="src\api\endpoints" />
+    <Folder Include="src\api\endpoints\users" />
+    <Folder Include="src\api\endpoints\test" />
+    <Folder Include="src\api\endpoints\users\login" />
+    <Folder Include="src\api\endpoints\users\keepSessionAlive" />
+    <Folder Include="src\api\endpoints\users\isSessionAlive" />
+    <Folder Include="src\api\endpoints\users\logout" />
+    <Folder Include="src\api\endpoints\users\forgotPassword" />
+    <Folder Include="src\api\endpoints\users\register" />
+    <Folder Include="src\api\protocol" />
+    <Folder Include="src\db" />
+    <Folder Include="src\lib" />
+    <Folder Include="src\da" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>
