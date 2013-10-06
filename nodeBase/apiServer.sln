@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{E2DBB879-313A-49D4-BB4C-D20B59AEB36F}") = "Server", "Server\Server.njsproj", "{A9995411-9910-4780-86DB-D80BB7A9FEAE}"
+Project("{F48CDB0C-A733-4163-8884-DCAA07CF69BF}") = "Server", "Server\Server.njsproj", "{A9995411-9910-4780-86DB-D80BB7A9FEAE}"
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{B86AB990-627B-48C4-8833-2E35436CD4FD}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -20,7 +20,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "website", "website\", "{B86
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "30073"
+		VWDPort = "1969"
 		VWDVirtualPath = "/"
 	EndProjectSection
 EndProject
@@ -30,10 +30,8 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A9995411-9910-4780-86DB-D80BB7A9FEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A9995411-9910-4780-86DB-D80BB7A9FEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A9995411-9910-4780-86DB-D80BB7A9FEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A9995411-9910-4780-86DB-D80BB7A9FEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9995411-9910-4780-86DB-D80BB7A9FEAE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{A9995411-9910-4780-86DB-D80BB7A9FEAE}.Release|Any CPU.ActiveCfg = Release|x86
 		{B86AB990-627B-48C4-8833-2E35436CD4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B86AB990-627B-48C4-8833-2E35436CD4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B86AB990-627B-48C4-8833-2E35436CD4FD}.Release|Any CPU.ActiveCfg = Debug|Any CPU

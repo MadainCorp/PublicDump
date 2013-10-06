@@ -81,6 +81,7 @@ AuthManager.prototype = {
      , loginHandler: function (user) {
      }
     , logout: function () {        
+        if (this._currentUser == null) return;
         var t = this;
         api.call(1, 'users/logout', { token: this._currentUser.userToken });
         this.setCurrentUser(null);
@@ -94,4 +95,9 @@ AuthManager.prototype = {
 }
 
 authManager = new AuthManager();
+
+$(window).unload(function () {
+    authManager.logout();
+});
+
 if (console.log) console.log("authManager loaded");
