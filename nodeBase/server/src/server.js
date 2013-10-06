@@ -1,7 +1,6 @@
 var httpServer = require('./httpServer.js');
 var error = require('./api/protocol/errorResponseObject.js');
-var environment = "dev";
-var serverConfig = require('../configs/serverConfigs.js').environments[environment];
+var serverConfig = require('../configs/serverConfigs.js');
 
 
 console.log('*********************************************');
@@ -9,7 +8,7 @@ console.log('**************   Start Server   *************');
 console.log('*********************************************');
 
 
-if (true || environment != "dev") {
+if (true || serverConfig.name != "development") {
     console.log('handle uncaughtExceptions');
     ///Handle uncaught Exception and dont let node crash out
     process.on('uncaughtException', function (err) {
@@ -44,7 +43,7 @@ httpServer.processRequest = function (httpRequest, httpResponse, method, packet)
     });
 }
 console.log('start HTTP server');
-httpServer.start(serverConfig.ip, serverConfig.httpPort);
+httpServer.start(serverConfig.httpServer.ip, serverConfig.httpServer.port);
 
-console.log('\n\nHTTP Server running at http://' + serverConfig.ip + ':' + serverConfig.httpPort);
+console.log('\n\nHTTP Server running at http://' + serverConfig.httpServer.ip + ':' + serverConfig.httpServer.port);
 

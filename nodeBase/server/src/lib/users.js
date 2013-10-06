@@ -41,11 +41,18 @@ Users.prototype = {
         });
     }
     , login: function (username, password, callback) {
-        username = username.toLowerCase(); 
-        sha256.update(password, "utf8");        //, "password": sha256.digest("base64")
-        
-        userDA.dataAdaptor.find({ "_id": username }, { limit: 2 },function (err, results) {            
-            if (results && results.length == 1) {                
+        username = username.toLowerCase();
+        try{
+            sha256.update(password, "utf8");
+            password = sha256.digest("base64");
+        }
+        catch (e) {
+            debugger;
+        }
+
+        userDA.dataAdaptor.find({ "_id": username, "password": password }, { limit: 2 }, function (err, results) {
+            debugger;
+            if (results && results.length == 1) {
                 callback(null, results[0]);
                 console.log(results[0].name + " has logged in.");
             }

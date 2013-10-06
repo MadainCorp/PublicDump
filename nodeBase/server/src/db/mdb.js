@@ -1,9 +1,10 @@
+var config = require("../../configs/serverConfigs.js");
 var logger = require("../logger.js");
 var MongoClient = require('mongodb').MongoClient;
 
 module.exports = {
     getCollection: function (collection,callback) {
-        MongoClient.connect('mongodb://loclhost:63297/testDB',
+        MongoClient.connect(config.mongoDBServer.connectionString,
             function (err, db) {
 
                 if (err) {
