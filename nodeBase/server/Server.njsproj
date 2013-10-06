@@ -9,6 +9,8 @@
     </LaunchUrl>
     <Name>Server</Name>
     <RootNamespace>Server</RootNamespace>
+    <StartupFile>src/server.js</StartupFile>
+    <DebuggerPort>5858</DebuggerPort>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

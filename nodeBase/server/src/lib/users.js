@@ -1,5 +1,6 @@
 var userDA = require("../da/usersDA.js");
-var sha256 = require("crypto").createHash("sha256");
+var crypto = require("crypto");
+
 
 function Users() {
 }
@@ -12,7 +13,8 @@ Users.prototype = {
         }
         userDoc._id = userDoc._id.toLowerCase();
        
-        try{
+        try {
+            var sha256 = crypto.createHash("sha256");
             sha256.update(userDoc.password, "utf8");
             userDoc.password = sha256.digest("base64");
         }
@@ -43,15 +45,16 @@ Users.prototype = {
     , login: function (username, password, callback) {
         username = username.toLowerCase();
         try{
+            var sha256 = crypto.createHash("sha256");
             sha256.update(password, "utf8");
             password = sha256.digest("base64");
         }
         catch (e) {
             debugger;
         }
-
+        
         userDA.dataAdaptor.find({ "_id": username, "password": password }, { limit: 2 }, function (err, results) {
-            debugger;
+            
             if (results && results.length == 1) {
                 callback(null, results[0]);
                 console.log(results[0].name + " has logged in.");
