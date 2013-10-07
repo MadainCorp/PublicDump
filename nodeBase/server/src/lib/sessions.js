@@ -9,7 +9,7 @@ if (useMongo) { // use mongo db for session management
             var doc = new sessions.Document();
             doc._id = token;
             doc.user = userDoc;
-            sessions.dataAdaptor.save(doc, function (err, result) { callback(err, { userToken: token }); });
+            sessions.dataAdaptor.save(doc, function (err, result) { callback(err, { userToken: token,name:userDoc.name }); });
             
        }
         , getSession: function (token, callback) {

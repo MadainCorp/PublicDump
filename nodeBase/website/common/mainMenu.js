@@ -2,9 +2,7 @@
 function mainMenu() {
 
     this.mainMenuConfig = {
-        ImageWidget: { pageName: 'Image Widget', pageUrl: 'pages/ImageWidget/SubPage.html', jsFiles: ['pages/ImageWidget/SubPage.js?v1'], cssFiles: ['pages/ImageWidget/SubPage.css?v1'], callback: function () { alert('Image widget loaded'); } }
-        , TextWidget: { pageName: 'Text Widget', pageUrl: 'pages/TextWidget/SubPage.html', jsFiles: ['pages/TextWidget/SubPage.js?v1'], cssFiles: ['pages/TextWidget/SubPage.css?v1'] }
-        , YouTubeWidget: { pageName: 'YouTube Widget', pageUrl: 'pages/YouTubeWidget/SubPage.html', jsFiles: ['pages/YouTubeWidget/SubPage.js?v1'], cssFiles: ['pages/YouTubeWidget/SubPage.css?v1'] }
+        ImageWidget: { pageName: 'Home', pageUrl: 'pages/home/SubPage.html', jsFiles: ['pages/home/SubPage.js?v1'], cssFiles: [], callback: function () {  } }        
     }
     
     this.dynamicLoader = new dynamicContentLoader('dynamicContentContainer', this.mainMenuConfig);
