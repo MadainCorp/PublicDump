@@ -1,23 +1,23 @@
 ﻿
 function mainMenu() {
 
-    this.mainMenuConfig = {
-        ImageWidget: { pageName: 'Home', pageUrl: 'pages/home/SubPage.html', jsFiles: ['pages/home/SubPage.js?v1'], cssFiles: [], callback: function () {  } }        
-    }
-    
-    this.dynamicLoader = new dynamicContentLoader('dynamicContentContainer', this.mainMenuConfig);
+    this.dynamicLoader = null;
 }
 
 mainMenu.prototype = {
-    init: function () {        
+    init: function (menuConfigs) {
+        this.dynamicLoader = new dynamicContentLoader('dynamicContentContainer', menuConfigs);
+
         var $ul = $(document.createElement('ul'));
         $('#pageMenu').append($ul);
-
-        for (var config in this.mainMenuConfig) {
-            var li = document.createElement('li');
-            li.innerHTML = this.mainMenuConfig[config].pageName;
-            li.onclick = this._createOnClickFunction(this.dynamicLoader,config);
-            $ul.append(li);
+        
+        for (var config in menuConfigs) {
+            if (menuConfigs[config].mainMenu) {
+                var li = document.createElement('li');
+                li.innerHTML = menuConfigs[config].pageName;
+                li.onclick = this._createOnClickFunction(this.dynamicLoader, config);
+                $ul.append(li);
+            }
         }
     }
     , _createOnClickFunction: function (dynamicLoader,config) {
@@ -29,4 +29,3 @@ mainMenu.prototype = {
 }
 
 var MainMenu = new mainMenu();
-$(document).ready(function () { MainMenu.init(); });

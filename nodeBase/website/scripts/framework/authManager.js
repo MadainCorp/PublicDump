@@ -7,7 +7,11 @@
 */
 function AuthManager() {
     this._currentUser = null;
-    this._tmrCheckSession = null;    
+    this._tmrCheckSession = null;
+    Cookies.defaults = {
+        path: '/',
+        secure: false
+    };
 }
 
 AuthManager.prototype = {
@@ -29,7 +33,10 @@ AuthManager.prototype = {
     }
     , setCurrentUser: function (user) {
         this._currentUser = user;
-        if (user == null) this.stopSessionTimeout();
+        if (user == null) {
+            this.stopSessionTimeout();
+            null;
+        }
         ///update cookie
         var expDate = new Date();
         expDate.setHours(expDate.getHours() + 3);
@@ -39,9 +46,9 @@ AuthManager.prototype = {
             //this._cookieManager.secure(true);
         }
         
-        Cookies.set('user', JSON.stringify(user), { expires: '1/1/2014',secure:true}); 
+        Cookies.set('user', JSON.stringify(user), { expires: '1/1/2014'}); 
        
-        if (this._tmrCheckSession)
+       if (this._tmrCheckSession)
             this.stopSessionTimeout();
         
         if (user) {            
@@ -96,8 +103,5 @@ AuthManager.prototype = {
 
 authManager = new AuthManager();
 
-$(window).unload(function () {
-    authManager.logout();
-});
 
 if (console.log) console.log("authManager loaded");

@@ -1,0 +1,17 @@
+﻿#dynamicContentContainer li {
+    background-color:#fff;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	text-indent:0;
+	border:1px solid #dcdcdc;
+    padding:4px;
+    line-height:25px;
+    min-height:25px;    
+    list-style-type:none;
+    cursor:pointer;
+    margin:10px;
+}
+
+    #dynamicContentContainer li:hover {
+        border-color:blue;
+    }

@@ -53,3 +53,4 @@ registerPage = {
    
     
 }
+var subPageConfigs;

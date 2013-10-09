@@ -52,8 +52,8 @@ Users.prototype = {
         catch (e) {
             debugger;
         }
-        
-        userDA.dataAdaptor.find({ "_id": username, "password": password }, { limit: 2 }, function (err, results) {
+        //, "password": password
+        userDA.dataAdaptor.find({ "_id": username }, { limit: 2 }, function (err, results) {
             
             if (results && results.length == 1) {
                 callback(null, results[0]);
