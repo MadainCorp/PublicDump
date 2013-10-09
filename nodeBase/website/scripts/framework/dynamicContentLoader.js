@@ -69,6 +69,7 @@ dynamicContentLoader.prototype = {
         }
 
         /// change url with hash so the the browser can keep history
+        
         this.currentHash = window.location.hash = pageName;
         //load new
         /// loads html file "/home/[widgetName]/SubPage.html"

@@ -28,15 +28,18 @@ var profileControl = {
 function SubPageConfigs() {
 
     this.dynamicLoader = new dynamicContentLoader('dynamicContentContainer');
-    this.register = { pageName: 'Register', pageUrl: '/pages/register/subPage.html', jsFiles: ['pages/register/subPage.js?v1'], cssFiles: [], callback: function () { registerPage.init() } };
-    this.login = { pageName: 'Login', pageUrl: '/pages/login/subPage.html', jsFiles: ['pages/login/subPage.js?v1'], cssFiles: [], callback: null };
-    this.home = { mainMenu: true, pageName: 'Home', pageUrl: '/pages/home/subPage.html', jsFiles: ['pages/home/subPage.js?v1'], cssFiles: [], callback: null };
-    this.categories = { mainMenu: true, pageName: 'Categories', pageUrl: '/pages/categories/subPage.html', jsFiles: ['pages/categories/subPage.js?v1'], cssFiles: ['/pages/categories/subPage.css'], callback: null };
-    this.subCategories = { mainMenu: true, pageName: 'Sub Categories', pageUrl: '/pages/subCategories/subPage.html', jsFiles: ['pages/subCategories/subPage.js?v1'], cssFiles: [], callback: null };
+    this.register = { pageUrl: '/pages/register/subPage.html', jsFiles: ['pages/register/subPage.js?v1'], cssFiles: [], callback: function () { registerPage.init() } };
+    this.login = {  pageUrl: '/pages/login/subPage.html', jsFiles: ['pages/login/subPage.js?v1'], cssFiles: [], callback: null };
+    this.home = { mainMenuLabel: 'Home', pageUrl: '/pages/home/subPage.html', jsFiles: ['pages/home/subPage.js?v1'], cssFiles: [], callback: null };
+    this.categories = { mainMenuLabel: 'Categories', pageUrl: '/pages/categories/subPage.html', jsFiles: ['pages/categories/subPage.js?v1'], cssFiles: ['/pages/categories/subPage.css'], callback: null };
+    this.subCategories = { mainMenuLabel: 'Sub Categories', pageUrl: '/pages/subCategories/subPage.html', jsFiles: ['pages/subCategories/subPage.js?v1'], cssFiles: [], callback: null };
 }
 
 SubPageConfigs.prototype = {
-    load: function (configName) {
+    load: function (configName) {        
+        for (var config in this)
+            if (this[config].pageUrl)
+                this[config].pageName = config;
         this.dynamicLoader.loadContentObj(this[configName]);
     }
 }
@@ -62,7 +65,11 @@ masterPage = {
         masterPage.load('login'); profileControl.clear();
     }
     , _loginHandler: function (user) {
-        masterPage.load('home');        
+        var hash = window.location.hash.substring(1);        
+        if (hash && subPageConfigs[hash])
+            masterPage.load(hash);
+        else
+            masterPage.load('home');
         profileControl.setUser(user)
     }
 

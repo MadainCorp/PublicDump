@@ -12,9 +12,9 @@ mainMenu.prototype = {
         $('#pageMenu').append($ul);
         
         for (var config in menuConfigs) {
-            if (menuConfigs[config].mainMenu) {
+            if (menuConfigs[config].mainMenuLabel) {
                 var li = document.createElement('li');
-                li.innerHTML = menuConfigs[config].pageName;
+                li.innerHTML = menuConfigs[config].mainMenuLabel;
                 li.onclick = this._createOnClickFunction(this.dynamicLoader, config);
                 $ul.append(li);
             }
