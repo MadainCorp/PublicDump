@@ -52,8 +52,7 @@ body {
     }
 
 #dynamicContentContainer {
-    min-height:300px;
-    float:left;
+    min-height:300px;    
     padding:15px;
     width:600px;
 }

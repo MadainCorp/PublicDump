@@ -42,11 +42,11 @@ dynamicContentLoader.prototype = {
         callback: is a function that is called when everything is loaded
     }
     */
-    , loadContentObj: function (configObj) {
+    , loadContentObj: function (configObj, segments) {
         if (!configObj) return;
         if (typeof (configObj) == "string")
             configObj = this.configs[configObj];
-        this.loadContent(configObj.pageName, configObj.pageUrl, configObj.jsFiles, configObj.cssFiles, configObj.callback);
+        this.loadContent(configObj.pageName, configObj.pageUrl, configObj.jsFiles, configObj.cssFiles,segments, configObj.callback);
     }
     /*
     Description:
@@ -59,7 +59,7 @@ dynamicContentLoader.prototype = {
     cssFiles: is an array of string urls where to find the needed css files
     callback: is a function that is called when everything is loaded
     */
-    , loadContent: function (pageName, pageUrl, jsFiles, cssFiles, callback) {        
+    , loadContent: function (pageName, pageUrl, jsFiles, cssFiles, segments, callback) {
         //distroy old content resources
         this.clear();
 
@@ -67,6 +67,21 @@ dynamicContentLoader.prototype = {
             this.loadContentObj(this.configs[pageName]);
             return;
         }
+
+        ///fix mistake
+        if (segments && !callback && typeof (segments) == 'function') {
+            callback = segments;
+            segments = null;
+        }
+        else if (segments) {            
+            if (typeof (segments) == 'array')
+                segments = segments.join("/");
+            else
+                segments = '' + segments; /// make sure its a string
+            if (segments[0] == '/' || segments[0] == '\\') segments.substring(1);
+            pageName = pageName + '/' + segments;
+        }
+        
 
         /// change url with hash so the the browser can keep history
         
