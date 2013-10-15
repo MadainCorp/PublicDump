@@ -30,9 +30,10 @@ function SubPageConfigs() {
     this.dynamicLoader = new dynamicContentLoader('dynamicContentContainer');
     this.register = { pageUrl: '/pages/register/subPage.html', jsFiles: ['pages/register/subPage.js?v1'], cssFiles: [], callback: function () { registerPage.init() } };
     this.login = {  pageUrl: '/pages/login/subPage.html', jsFiles: ['pages/login/subPage.js?v1'], cssFiles: [], callback: null };
-    this.home = { mainMenuLabel: 'Home', pageUrl: '/pages/home/subPage.html', jsFiles: ['pages/home/subPage.js?v1'], cssFiles: [], callback: null };
-    this.categories = { mainMenuLabel: 'Categories', pageUrl: '/pages/categories/subPage.html', jsFiles: ['pages/categories/subPage.js?v1'], cssFiles: ['/pages/categories/subPage.css'], callback: function () { categoriesPage.init();} };
-    this.subCategories = { mainMenuLabel: 'Sub Categories', pageUrl: '/pages/subCategories/subPage.html', jsFiles: ['pages/subCategories/subPage.js?v1'], cssFiles: [], callback: null };
+    this.home = { mainMenuLabel: 'Home', pageUrl: '/pages/home/subPage.html', jsFiles: ['pages/home/subPage.js?v1'], cssFiles: [], callback: function () { homePage.init();} };
+    this.projects = { mainMenuLabel: 'Projects', pageUrl: '/pages/projects/projectsPage.html', jsFiles: ['pages/projects/projectsPage.js?v1'], cssFiles: ['/pages/projects/projectsPage.css'], callback: function () { projectsPage.init(); } };
+    this.project = { mainMenuLabel: 'project', pageUrl: '/pages/project/projectPage.html', jsFiles: ['pages/project/projectPage.js?v1'], cssFiles: ['/pages/project/projectPage.css'], callback: function (segments) { projectPage.init(segments); } };
+    this.resources = { mainMenuLabel: 'Resources', pageUrl: '/pages/resources/resourcesPage.html', jsFiles: ['pages/resources/resourcesPage.js?v1'], cssFiles: [], callback: function () { recourcesPage.init(); } };
 
     for (var config in this)
         if (this[config].pageUrl)
@@ -75,8 +76,18 @@ masterPage = {
             masterPage.load('home');
         profileControl.setUser(user)
     }
+    , kickOutIfNotLoggedIn: function () {
+        if (!authManager.isUserLoggedIn()) {
+            masterPage.load('login');      
+            return true;
+        }
+        else
+            return false;
+    }
 
 }
+
+
 $(document).ready(function () {
     if (console.log) console.log("document ready");
     subPageConfigs = new SubPageConfigs();

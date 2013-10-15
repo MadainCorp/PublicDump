@@ -48,7 +48,7 @@ dynamicContentLoader.prototype = {
     }
     */
     , loadContentObj: function (configObj, segments) {
-        if (!configObj) return;
+        if (!configObj) { debugger; return; }
         if (typeof (configObj) == "string")
             configObj = this.configs[configObj];
         this.loadContent(configObj.pageName, configObj.pageUrl, configObj.jsFiles, configObj.cssFiles,segments, configObj.callback);
@@ -100,7 +100,7 @@ dynamicContentLoader.prototype = {
                 t._loadCSSFiles(cssFiles);
                 t._loadJSFiles(jsFiles);
                 t.$dynamicContentContainer.fadeIn();
-                if (typeof (callback) == 'function') callback();                
+                if (typeof (callback) == 'function') callback(segments);
             }
         );
 
