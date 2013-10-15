@@ -24,7 +24,7 @@ Users.prototype = {
         userDA.dataAdaptor.find({ _id: userDoc._id }, { limit: 1 }, function (err, results) {
            
             if (err || results == null) {
-                callback(require('../api/protocol/errorResponseObject.js').createCantConnectToDB(), null);
+                callback(require('../api/protocol/errorResponseObject.js').createCantConnectToDBError(), null);
                 return;
             }
            

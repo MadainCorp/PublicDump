@@ -15,13 +15,18 @@ function dynamicContentLoader(dynamicContentContainerID, configs) {
     ///keeps track of current header
     this.currentHash;
 
-    ///when the hash tag changes load that content from configs
-    var t = this;
-    $(window).bind('hashchange', function () {
+    ///when the hash tag changes load that content from configs    
+    $(window).bind('hashchange', createHashHandler(this));
+}
+
+function createHashHandler(t) {
+    return function () {
         var newHash = window.location.hash.substring(1);
-        if (t.currentHash != newHash)
-        t.loadContentObj(t.configs[newHash]);
-    });
+        if (t.currentHash != newHash && t.configs) {
+            var segements = newHash.split('/');
+            t.loadContentObj(t.configs[segements[0]], segements.splice(1));
+        }
+    }
 }
 
 dynamicContentLoader.prototype = {
@@ -64,7 +69,7 @@ dynamicContentLoader.prototype = {
         this.clear();
 
         if (pageName && !pageUrl && this.configs && this.configs[pageName]) {// load from congig
-            this.loadContentObj(this.configs[pageName]);
+            this.loadContentObj(this.configs[pageName], segments);
             return;
         }
 
@@ -86,6 +91,7 @@ dynamicContentLoader.prototype = {
         /// change url with hash so the the browser can keep history
         
         this.currentHash = window.location.hash = pageName;
+
         //load new
         /// loads html file "/home/[widgetName]/SubPage.html"
         var t = this;

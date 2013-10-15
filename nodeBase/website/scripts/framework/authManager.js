@@ -65,7 +65,10 @@ AuthManager.prototype = {
         if (authManager._tmrCheckSession != null) clearInterval(authManager._tmrCheckSession);
     }
     , isSessionAlive: function () {        
-        api.call(null, 'users/isSessionAlive', { userToken: authManager._currentUser.userToken }, function (response) {  if (response.error || !response.result.LoggedIn) { authManager.logout(); } });
+        if (authManager._currentUser == null)
+            authManager.logout();
+        else
+            api.call(null, 'users/isSessionAlive', { userToken: authManager._currentUser.userToken }, function (response) { if (response.error || !response.result.LoggedIn) { authManager.logout(); } }, authManager.logout);
     }
     , keepSessionAlive: function () {
         api.call(null, 'users/keepSessionAlive', { userToken: authManager._currentUser.userToken }, function (response) { if (response.error || !response.result) authManager.logout(); });
@@ -88,11 +91,12 @@ AuthManager.prototype = {
      , loginHandler: function (user) {
      }
     , logout: function () {        
-        if(this._currentUser==null)return;
-        var t = this;
-        api.call(1, 'users/logout', { token: this._currentUser.userToken });
-        this.setCurrentUser(null);
-        this.logoutHandler();
+        if (this._currentUser != null) {            
+            api.call(1, 'users/logout', { token: authManager._currentUser.userToken });
+            authManager.setCurrentUser(null);
+        }
+        authManager.stopSessionTimeout();
+        authManager.logoutHandler();
     }
     , logoutHandler: function () {
     }

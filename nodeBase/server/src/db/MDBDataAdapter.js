@@ -34,8 +34,13 @@ MDBDataAdapter.prototype = {
             }
         })
     }
-    , save: function (doc, callback) {
+    , save: function (doc,options, callback) {
         
+        if (!callback && typeof (options) == 'function') {
+            callback = options;
+            options = {};
+        }
+
         if (!doc.createdOn) doc.createdOn = new Date();
         if (!doc.lastUpdated) doc.lastUpdated = new Date();
 
@@ -43,7 +48,7 @@ MDBDataAdapter.prototype = {
             if (err)
                 callback(err, null);
             else {
-                col.save(doc, callback);
+                col.save(doc,options, callback);
             }
         })
     }
@@ -75,6 +80,15 @@ MDBDataAdapter.prototype = {
                 callback(err, null);
             else
                 col.remove({ _id: id }, callback);
+        });
+    }
+    , findAndRemove: function (selector,options, callback) {
+        if (!callback) callback = function () { };
+        this._getCollection(function (err, col) {
+            if (err)
+                callback(err, null);
+            else
+                col.remove(selector, options, callback);
         });
     }
 }

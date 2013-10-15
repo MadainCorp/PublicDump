@@ -42,8 +42,11 @@ errorObject.prototype = {
     , createEmailAlreadyInUseError: function (requestObject) {
         return this.createError(requestObject, 1301, "Email is already in use.");
     }
-    , createCantConnectToDB: function (requestObject) {
+    , createCantConnectToDBError: function (requestObject) {
         return this.createError(requestObject, 1400, "Cant Connect to Data Storage");
+    }
+    , createAccessDeniedError: function (requestObject) {
+        return this.createError(requestObject, 1500, "Access denied");
     }
 }
 
