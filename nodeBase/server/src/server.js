@@ -8,10 +8,11 @@ console.log('**************   Start Server   *************');
 console.log('*********************************************');
 
 
-if (true || serverConfig.name != "development") {
+if ( serverConfig.name != "development") {
     console.log('handle uncaughtExceptions');
     ///Handle uncaught Exception and dont let node crash out
     process.on('uncaughtException', function (err) {
+        debugger;
         console.error(err);
         console.log(err);
         console.log("ERROR! Try to keep alive. Node recovered...");

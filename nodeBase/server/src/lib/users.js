@@ -3,16 +3,17 @@ var crypto = require("crypto");
 
 
 function Users() {
+    
 }
 
 Users.prototype = {
     register: function (userDoc, callback) {
-        if (!userDoc._id && userDoc.email) {
-            userDoc._id = userDoc.email;
-            delete userDoc.email;
-        }
-        userDoc._id = userDoc._id.toLowerCase();
-       
+        
+        ///just in case
+        userDoc._id = null;
+        userDoc.email = userDoc.email.toLowerCase();
+        userDoc.isActive = true;
+
         try {
             var sha256 = crypto.createHash("sha256");
             sha256.update(userDoc.password, "utf8");
@@ -21,7 +22,7 @@ Users.prototype = {
         catch (e) {
             debugger;
         }
-        userDA.dataAdaptor.find({ _id: userDoc._id }, { limit: 1 }, function (err, results) {
+        userDA.dataAdaptor.find({ email: userDoc.email }, { limit: 1 }, function (err, results) {
            
             if (err || results == null) {
                 callback(require('../api/protocol/errorResponseObject.js').createCantConnectToDBError(), null);
@@ -42,8 +43,8 @@ Users.prototype = {
             }
         });
     }
-    , login: function (username, password, callback) {
-        username = username.toLowerCase();
+    , login: function (email, password, callback) {
+        email = email.toLowerCase();
         try{
             var sha256 = crypto.createHash("sha256");
             sha256.update(password, "utf8");
@@ -53,7 +54,7 @@ Users.prototype = {
             debugger;
         }
         //, "password": password
-        userDA.dataAdaptor.find({ "_id": username }, { limit: 2 }, function (err, results) {
+        userDA.dataAdaptor.find({ "email": email }, { limit: 2 }, function (err, results) {
             
             if (results && results.length == 1) {
                 callback(null, results[0]);

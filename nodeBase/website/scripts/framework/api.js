@@ -1,7 +1,7 @@
 ﻿
 
 var api = {
-    apiTimeout:3600
+    apiTimeout:30000
     ,server: 'http://127.0.0.1:1339'
     ,_fullLogging:false
     , turnLoggingOn: function (value) {
