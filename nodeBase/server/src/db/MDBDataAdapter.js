@@ -5,7 +5,7 @@ function MDBDataAdapter(collection) {
 }
 
 MDBDataAdapter.prototype = {
-    _getCollection: function (callback) {
+    getCollection: function (callback) {
         mdb.getCollection(this.collection, callback);
     }
     , insert: function (doc, callback) {
@@ -13,7 +13,7 @@ MDBDataAdapter.prototype = {
         if (!doc.createdOn) doc.createdOn = new Date();
         if (!doc.lastUpdated) doc.lastUpdated = new Date();
 
-        this._getCollection(function (err, col) {
+        this.getCollection(function (err, col) {
             if (err)
                 callback(err, null);
             else {
@@ -26,11 +26,11 @@ MDBDataAdapter.prototype = {
         if (!doc.createdOn) doc.createdOn = new Date();
         if (!doc.lastUpdated) doc.lastUpdated = new Date();
 
-        this._getCollection(function (err, col) {
+        this.getCollection(function (err, col) {
             if (err)
                 callback(err, null);
             else {
-                col.update(doc, callback);                
+                col.update({_id:doc._id} ,doc, callback);                
             }
         })
     }
@@ -44,7 +44,7 @@ MDBDataAdapter.prototype = {
         if (!doc.createdOn) doc.createdOn = new Date();
         if (!doc.lastUpdated) doc.lastUpdated = new Date();
 
-        this._getCollection(function (err, col) {
+        this.getCollection(function (err, col) {
             if (err)
                 callback(err, null);
             else {
@@ -64,7 +64,7 @@ MDBDataAdapter.prototype = {
 
         if (options == null) options = {};
 
-        this._getCollection(function (err, col) {
+        this.getCollection(function (err, col) {
             if (err)
                 callback(err, null);
             else
@@ -75,7 +75,7 @@ MDBDataAdapter.prototype = {
     
     , remove: function (id, callback) {
         if (!callback) callback = function () { };
-        this._getCollection(function (err, col) {
+        this.getCollection(function (err, col) {
             if (err)
                 callback(err, null);
             else
@@ -84,7 +84,7 @@ MDBDataAdapter.prototype = {
     }
     , findAndRemove: function (selector,options, callback) {
         if (!callback) callback = function () { };
-        this._getCollection(function (err, col) {
+        this.getCollection(function (err, col) {
             if (err)
                 callback(err, null);
             else

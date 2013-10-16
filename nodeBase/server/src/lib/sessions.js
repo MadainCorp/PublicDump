@@ -5,11 +5,11 @@ var mod;
 if (useMongo) { // use mongo db for session management    
     var sessions = require('../da/sessionsDA.js');
     mod= {
-        setSession: function (token,userDoc, callback) {            
+        setSession: function (userDoc, callback) {            
             var doc = new sessions.Document();
-            doc._id = token;
+            doc._id = (new Buffer(new Date().getTime() + "®" + userDoc.email).toString('base64'));;
             doc.user = userDoc;
-            sessions.dataAdaptor.save(doc, function (err, result) { callback(err, { userToken: token,name:userDoc.name }); });
+            sessions.dataAdaptor.save(doc, function (err, result) { callback(err, { userToken: doc._id , name: userDoc.name }); });
             
         }
         , getSession: function (token, callback) {

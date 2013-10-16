@@ -76,9 +76,9 @@ AuthManager.prototype = {
      , isUserLoggedIn: function () {
          return (this.getCurrentUser() != null);
      }
-    , login: function (username, password, callback) {
+    , login: function (email, password, callback) {
         var t = this;
-        api.call(1, 'users/login', { username: username, password: password }, function (result) {  t._loggedIn(result); callback(result); }, function (e) { callback({ error: {code:-1,message:"faild to communicate with the server"}}) });
+        api.call(1, 'users/login', { email: email, password: password }, function (result) { t._loggedIn(result); callback(result); }, function (e) { callback({ error: { code: -1, message: "faild to communicate with the server" } }) });
     }
     , _loggedIn: function (response) {        
         if (response.error)
