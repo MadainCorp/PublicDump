@@ -59,7 +59,7 @@ AuthManager.prototype = {
     }
     , startSessionTimeout: function () {
         if (authManager._tmrCheckSession == null)
-            authManager._tmrCheckSession = setInterval(authManager.isSessionAlive, 10000);
+            authManager._tmrCheckSession = setInterval(authManager.isSessionAlive, 60000);
     }
     , stopSessionTimeout: function () {
         if (authManager._tmrCheckSession != null) clearInterval(authManager._tmrCheckSession);

@@ -1,3 +1,4 @@
+var errors = require("../api/protocol/errorResponseObject.js" );
 var mdb = require("../db/mdb.js");
 
 function MDBDataAdapter(collection) {
@@ -8,6 +9,9 @@ MDBDataAdapter.prototype = {
     getCollection: function (callback) {
         mdb.getCollection(this.collection, callback);
     }
+    , convertToObjectID: function (id) {
+        return mdb.convertToObjectID(id);
+    }
     , insert: function (doc, callback) {
         
         if (!doc.createdOn) doc.createdOn = new Date();
@@ -17,7 +21,12 @@ MDBDataAdapter.prototype = {
             if (err)
                 callback(err, null);
             else {
-                col.insert(doc, callback);
+                col.insert(doc, function (error, result) {
+                    if (error)
+                        callback(errors.createInsertError(null, error), null);
+                    else
+                        callback(null,result)
+                });
             }
         })
     }
@@ -30,7 +39,12 @@ MDBDataAdapter.prototype = {
             if (err)
                 callback(err, null);
             else {
-                col.update({_id:doc._id} ,doc, callback);                
+                col.update({ _id: doc._id }, doc, function (error, result) {
+                    if (error)
+                        callback(errors.createUpdateError(null, error), null);
+                    else
+                        callback(null, result)
+                });
             }
         })
     }

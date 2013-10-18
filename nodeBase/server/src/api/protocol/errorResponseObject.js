@@ -4,7 +4,8 @@
 
 function errorData(){    
     this.code= 0;
-    this.message= null;
+    this.message = null;
+    this.innerError = null;
 }
 
 function errorObject() {
@@ -14,7 +15,7 @@ function errorObject() {
 
 /// All System exceptions should be created here for a centralized error repository
 errorObject.prototype = {
-    createError: function (requestObject, errorCode, errorMessage) {
+    createError: function (requestObject, errorCode, errorMessage, innerError) {
         var e = new errorObject();
         if (requestObject != undefined && requestObject != null) {
             e.id = requestObject.id;           
@@ -25,6 +26,7 @@ errorObject.prototype = {
 
         e.error.code = errorCode;
         e.error.message = errorMessage;
+        e.innerError = innerError;
         return e;
     }
     , createDataPacketTooLargeError: function (requestObject) {
@@ -47,6 +49,15 @@ errorObject.prototype = {
     }
     , createAccessDeniedError: function (requestObject) {
         return this.createError(requestObject, 1500, "Access denied");
+    }
+    , createInsertError: function (requestObject, innerError) {
+        if (innerError && innerError.err && innerError.err.toLowerCase().indexOf("duplicate") > 0)
+            return this.createError(requestObject, 2000, "Duplicate Insert Error", innerError);
+        else
+            return this.createError(requestObject, 2000, "Insert Error", innerError);
+    }
+    , createUpdateError: function (requestObject, innerError) {
+        return this.createError(requestObject, 2100, "Update Error", innerError);
     }
 }
 

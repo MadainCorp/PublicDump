@@ -1,11 +1,11 @@
 
-var resources = require('../../../../lib/resources.js');
+var projects = require('../../../../lib/projects.js');
 module.exports = {
     secureAPI:true
     ,process: function (requestObj, callback) {
-        console.log("verify unique email... ", requestObj);
+        console.log("verify unique project name... ", requestObj);
  
-        resources.add(requestObj.params, function (err, res) {
+        projects.add(requestObj.params, function (err, res) {
             if (err)
                 callback(err, null);
             else

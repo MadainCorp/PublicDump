@@ -37,10 +37,34 @@
     <Content Include="src\api\apiTrafficManager.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="src\api\endpoints\projects\add\addApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\add\addParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\getAll\getAllApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\getAll\getAllParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\get\getApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\get\getParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="src\api\endpoints\resources\add\addApi.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="src\api\endpoints\resources\add\addParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\resources\getAll\getAllApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\resources\getAll\getAllParamSchema.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="src\api\endpoints\test\testApi.js">
@@ -94,6 +118,9 @@
     <Content Include="src\api\protocol\responseObject.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="src\da\projectsDA.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="src\da\resourcesDA.js">
       <SubType>Content</SubType>
     </Content>
@@ -110,6 +137,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="src\httpServer.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\lib\projects.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="src\lib\resources.js">
@@ -138,8 +168,14 @@
     <Folder Include="src" />
     <Folder Include="src\api\" />
     <Folder Include="src\api\endpoints" />
+    <Folder Include="src\api\endpoints\projects" />
+    <Folder Include="src\api\endpoints\projects\add" />
+    <Folder Include="src\api\endpoints\projects\getAll" />
+    <Folder Include="src\api\endpoints\projects\project" />
+    <Folder Include="src\api\endpoints\projects\project\get" />
     <Folder Include="src\api\endpoints\resources" />
     <Folder Include="src\api\endpoints\resources\add" />
+    <Folder Include="src\api\endpoints\resources\getAll" />
     <Folder Include="src\api\endpoints\users" />
     <Folder Include="src\api\endpoints\test" />
     <Folder Include="src\api\endpoints\users\login" />

@@ -51,7 +51,8 @@ dynamicContentLoader.prototype = {
         if (!configObj) { debugger; return; }
         if (typeof (configObj) == "string")
             configObj = this.configs[configObj];
-        this.loadContent(configObj.pageName, configObj.pageUrl, configObj.jsFiles, configObj.cssFiles,segments, configObj.callback);
+        
+        this.loadContent(configObj.pageName, configObj.pageUrl, configObj.jsFiles, configObj.cssFiles, segments, configObj.callback);
     }
     /*
     Description:

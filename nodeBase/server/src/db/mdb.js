@@ -1,6 +1,7 @@
 var config = require("../../configs/serverConfigs.js");
 var logger = require("../logger.js");
 var MongoClient = require('mongodb').MongoClient;
+var MongoObjectID = require('mongodb').ObjectID;
 
 module.exports = {
     getCollection: function (collection,callback) {
@@ -18,5 +19,8 @@ module.exports = {
                 }
                 ///db.close(); -- auto pools
             });
+    }
+    , convertToObjectID: function (id) {
+        return new MongoObjectID(id);
     }
 }
