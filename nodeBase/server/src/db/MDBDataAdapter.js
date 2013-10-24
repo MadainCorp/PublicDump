@@ -12,6 +12,14 @@ MDBDataAdapter.prototype = {
     , convertToObjectID: function (id) {
         return mdb.convertToObjectID(id);
     }
+    , findByObjectID: function (id, callback) {
+        this.getCollection(function (err, col) {
+            if (err)
+                callback(err, null);
+            else
+                col.find({ _id: typeof (id) == "object" ? id : mdb.convertToObjectID(id) }).toArray(callback);
+        });
+    }
     , insert: function (doc, callback) {
         
         if (!doc.createdOn) doc.createdOn = new Date();

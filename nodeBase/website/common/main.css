@@ -96,7 +96,7 @@ label.error:before {
     content:"* ";
 }
 
-input[type=text], input[type=password], input[type=email], input[type=date] {
+input[type=text], input[type=password], input[type=email], input[type=date], input[type=url],textarea,select {
     background-color:#fff;
 	-webkit-border-top-left-radius:4px;
 	-moz-border-radius-topleft:4px;
@@ -115,4 +115,7 @@ input[type=text], input[type=password], input[type=email], input[type=date] {
     padding:4px;
     line-height:25px;
     min-height:25px;
+}
+textarea {
+    line-height:20px;
 }

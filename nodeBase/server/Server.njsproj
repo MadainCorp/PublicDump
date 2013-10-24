@@ -55,6 +55,30 @@
     <Content Include="src\api\endpoints\projects\project\get\getParamSchema.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\add\addApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\add\addParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\delete\deleteApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\delete\deleteParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\getBacklog\getBacklogApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\getBacklog\getBacklogParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\update\updateApi.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\api\endpoints\projects\project\userStories\update\updateParamSchema.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="src\api\endpoints\resources\add\addApi.js">
       <SubType>Content</SubType>
     </Content>
@@ -130,6 +154,9 @@
     <Content Include="src\da\usersDA.js">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="src\da\userStoriesDA.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="src\db\mdb.js">
       <SubType>Content</SubType>
     </Content>
@@ -149,6 +176,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="src\lib\sessions.js">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="src\lib\userStories.js">
       <SubType>Content</SubType>
     </Content>
     <Content Include="src\logger.js">
@@ -173,6 +203,11 @@
     <Folder Include="src\api\endpoints\projects\getAll" />
     <Folder Include="src\api\endpoints\projects\project" />
     <Folder Include="src\api\endpoints\projects\project\get" />
+    <Folder Include="src\api\endpoints\projects\project\userStories" />
+    <Folder Include="src\api\endpoints\projects\project\userStories\getBacklog" />
+    <Folder Include="src\api\endpoints\projects\project\userStories\add" />
+    <Folder Include="src\api\endpoints\projects\project\userStories\delete" />
+    <Folder Include="src\api\endpoints\projects\project\userStories\update" />
     <Folder Include="src\api\endpoints\resources" />
     <Folder Include="src\api\endpoints\resources\add" />
     <Folder Include="src\api\endpoints\resources\getAll" />

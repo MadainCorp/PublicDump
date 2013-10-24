@@ -1,0 +1,27 @@
+﻿<h1>Loading...</h1>
+<i>project</i>
+<br />
+  
+<div>
+    <button id="btnAddStory" onclick="backlogPage.addClick();">New Story</button>
+</div>
+<br />
+<form id="frmStory">
+    <div class="story template">
+        <div class="delete" onclick="backlogPage.deleteElement(this);">X</div>
+        <div class="mover">&nbsp;</div>
+        <input type="text" class="title" placeholder="Title" databind="title" required />
+        <span class="createdOn">12/12/1225</span><span class="storyID">XXX</span><label class="storyID">ID:</label>
+        <select class="owner" databind="ownerID">
+            <option>(owner)</option>
+        </select>
+        <div class="details">
+            <textarea class="description" rows="3" placeholder="description..." databind="description"></textarea>
+            <br />
+            <input type="url" class="specDoc" placeholder="Spec Doc" databind="specDoc" />
+        </div>
+    </div>
+</form>
+
+<div id="divUserStories">
+</div>

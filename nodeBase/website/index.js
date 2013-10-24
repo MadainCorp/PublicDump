@@ -35,9 +35,9 @@ function SubPageConfigs() {
 
     this.projects = { mainMenuLabel: 'Projects', pageUrl: '/pages/projects/projectsPage.html', jsFiles: ['pages/projects/projectsPage.js?v1'], cssFiles: ['/pages/projects/projectsPage.css'], callback: function () { projectsPage.init(); } };
     this.project = { pageUrl: '/pages/projects/project/projectPage.html', jsFiles: ['pages/projects/project/projectPage.js?v1'], cssFiles: [], callback: function (segments) { projectPage.init(segments); } };
-    this.backlog = { pageUrl: '/pages/projects/project/backlog/backlogPage.html', jsFiles: ['pages/projects/project/backlog/backlogPage.js?v1'], cssFiles: [], callback: function (segments) { backlogPage.init(segments); } };
+    this.backlog = { pageUrl: '/pages/projects/project/backlog/backlogPage.html', jsFiles: ['pages/projects/project/backlog/backlogPage.js?v1'], cssFiles: ['pages/projects/project/backlog/backlogPage.css?v1'], callback: function (segments) { backlogPage.init(segments); } };
 
-    this.resources = { mainMenuLabel: 'resources', pageUrl: '/pages/resources/resourcesPage.html', jsFiles: ['pages/resources/resourcesPage.js?v1'], cssFiles: [], callback: function () { recourcesPage.init(); } };
+    this.resources = { mainMenuLabel: 'Resources', pageUrl: '/pages/resources/resourcesPage.html', jsFiles: ['pages/resources/resourcesPage.js?v1'], cssFiles: [], callback: function () { recourcesPage.init(); } };
 
     for (var config in this)
         if (this[config].pageUrl)
@@ -58,7 +58,8 @@ masterPage = {
 
         authManager.logoutHandler = masterPage._logOutHandler;
         authManager.loginHandler = masterPage._loginHandler;
-        
+        this.$dynamicContentContainer = $('#dynamicContentContainer:first');
+
         if (authManager.isUserLoggedIn())
             authManager.loginHandler(authManager.getCurrentUser());
         else

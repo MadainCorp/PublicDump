@@ -33,6 +33,8 @@ dynamicContentLoader.prototype = {
     clear: function () {
         this.$dynamicContentContainer.empty();
         $('[dynamicContent=true]').remove();
+        //close all dialogs
+        $(".ui-dialog-content").dialog("close");
     }
     /*
     Description:
@@ -79,12 +81,13 @@ dynamicContentLoader.prototype = {
             callback = segments;
             segments = null;
         }
-        else if (segments) {            
+        else if (segments) {
+            ///mest convert to string just in case someone pastes in url
             if (typeof (segments) == 'array')
                 segments = segments.join("/");
             else
                 segments = '' + segments; /// make sure its a string
-            if (segments[0] == '/' || segments[0] == '\\') segments.substring(1);
+            if (segments[0] == '/' || segments[0] == '\\') segments = segments.substring(1);
             pageName = pageName + '/' + segments;
         }
         

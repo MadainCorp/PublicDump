@@ -1,0 +1,85 @@
+﻿#btnAddStory {
+    float:right;
+}
+.story{
+    border:1px gray solid;
+    -webkit-border-top-left-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	-moz-border-radius-topright:10px;
+	border-top-right-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	-moz-border-radius-bottomright:10px;
+	border-bottom-right-radius:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	border-bottom-left-radius:10px;
+    padding:10px;
+    margin-top:15px;
+    width:920px;  
+}
+/*
+.details {
+display:none;
+}
+*/
+.delete {
+    width:15px;
+    background-color:maroon;
+    color:white;
+    float:right;
+    margin-top:-30px;
+    margin-right:-15px;
+    padding:5px;
+    text-align:center;
+}
+
+.mover {
+    width:15px;
+    background-color:gray;
+    float:right;
+    height:150px;
+}
+
+.title {
+    font-size:x-large;
+    width:50%;
+}
+
+.storyID {
+    font-size:smaller;
+    color:gray;
+    float:right;
+    margin-right: 5px;
+}
+
+.createdOn{
+    font-size:smaller;
+    color:gray;
+    float:right;
+    margin-right: 5px;
+}
+
+.description {
+    width:95%;
+    border:#eee solid 1px;
+}
+
+.specDoc {
+    width:95%;
+    border:#eee solid 1px;
+}
+
+
+input[type=text], input[type=url],textarea,select {
+    border:none;
+}
+
+.template.story {
+    display:none;
+}
+
+.template .delete,.template .mover{
+    display:none;
+}

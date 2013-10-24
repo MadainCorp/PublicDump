@@ -1,11 +1,12 @@
 var config = require("../../configs/serverConfigs.js");
 var logger = require("../logger.js");
-var MongoClient = require('mongodb').MongoClient;
-var MongoObjectID = require('mongodb').ObjectID;
+var mongo = require('mongodb');
+//var MongoClient = require('mongodb').MongoClient;
+//var MongoObjectID = require('mongodb').ObjectID;
 
 module.exports = {
     getCollection: function (collection,callback) {
-        MongoClient.connect(config.mongoDBServer.connectionString,
+        mongo.MongoClient.connect(config.mongoDBServer.connectionString,
             function (err, db) {
 
                 if (err) {
@@ -21,6 +22,6 @@ module.exports = {
             });
     }
     , convertToObjectID: function (id) {
-        return new MongoObjectID(id);
+        return new mongo.ObjectID.createFromHexString(id);
     }
 }

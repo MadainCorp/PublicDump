@@ -59,6 +59,9 @@ errorObject.prototype = {
     , createUpdateError: function (requestObject, innerError) {
         return this.createError(requestObject, 2100, "Update Error", innerError);
     }
+    , createDeleteError: function (requestObject, innerError) {
+        return this.createError(requestObject, 2200, "Delete Error", innerError);
+    }
 }
 
 module.exports = new errorObject();
